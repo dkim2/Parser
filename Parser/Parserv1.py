@@ -1,4 +1,5 @@
 #My attempt at a basic Python-based Parser. Will take in ASCII text and reorganize based on input.
+#Based off of http://pythonpracticeprojects.com/command-line-parser.html
 import argparse
 
 
@@ -8,6 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("file", help = "stores file")
 parser.add_argument("--sort", help = "alphabetize", default = False, action = "store_true")
 parser.add_argument("--reverse", "-r", help = "reverses input", default = False, action = "store_true")
+parser.add_argument("--output=", "-o", nargs = 1, help = "Writes the line sorted contents to out_file", default = False, action = "store_true")
 
 args = parser.parse_args()
 if args.file.endswith('.txt'):
@@ -18,14 +20,16 @@ if args.file.endswith('.txt'):
 else:
 	wordSortList = args.file.split()
 
-print("apple")
-
 
 if args.sort:
 	sorted(wordSortList)
 
 if args.reverse:
 	wordSortList.reverse()
+if args.output:
+	#Figure out how to output into a file
+	#Nargs?
+
 
 for a in wordSortList:
 	print(a)
