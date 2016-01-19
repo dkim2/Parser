@@ -1,2 +1,3 @@
-None
-\n', 'three', 'two\n']
+one
+two
+three
